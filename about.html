@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About TryPivot - Community-Driven Sales Platform</title>
+    <meta name="description" content="Learn about TryPivot's mission to revolutionize sales through community-driven approaches. Discover our story, values, and how we help businesses achieve 10X growth.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 min-h-screen text-white overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/90 backdrop-blur-sm border-b border-slate-700/50">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="logo-hover cursor-pointer group">
+                        <div class="relative w-8 h-8">
+                            <div class="absolute inset-1 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full pulse-animation"></div>
+                            <div class="absolute inset-2 bg-slate-900 rounded-full flex items-center justify-center">
+                                <div class="w-1 h-1 bg-orange-400 rounded-full"></div>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <div class="w-6 h-0.5 bg-gradient-to-r from-transparent via-orange-300 to-transparent rotate-animation origin-center"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="index.html" class="text-xl font-bold gradient-text">TryPivot</a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-slate-300 hover:text-orange-400 transition-colors">Home</a>
+                    <a href="about.html" class="nav-link text-slate-300 hover:text-orange-400 transition-colors">About</a>
+                    <a href="services.html" class="nav-link text-slate-300 hover:text-orange-400 transition-colors">Services</a>
+                    <a href="pricing.html" class="nav-link text-slate-300 hover:text-orange-400 transition-colors">Pricing</a>
+                    <a href="target.html" class="nav-link text-slate-300 hover:text-orange-400 transition-colors">Who It's For</a>
+                    <a href="faq.html" class="nav-link text-slate-300 hover:text-orange-400 transition-colors">FAQ</a>
+                    <a href="contact.html" class="nav-link text-slate-300 hover:text-orange-400 transition-colors">Contact</a>
+                    <a href="index.html#early-access" class="submit-button px-4 py-2 rounded-lg font-semibold text-white text-sm">Get Early Access</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden text-slate-300 hover:text-orange-400">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu fixed top-0 left-0 w-full h-full bg-slate-900 z-50 md:hidden">
+            <div class="flex flex-col h-full">
+                <div class="flex items-center justify-between p-6 border-b border-slate-700">
+                    <span class="text-xl font-bold gradient-text">TryPivot</span>
+                    <button id="mobileMenuClose" class="text-slate-300 hover:text-orange-400">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex flex-col space-y-4 p-6">
+                    <a href="index.html" class="nav-link text-slate-300 hover:text-orange-400 transition-colors text-lg">Home</a>
+                    <a href="about.html" class="nav-link text-slate-300 hover:text-orange-400 transition-colors text-lg">About</a>
+                    <a href="services.html" class="nav-link text-slate-300 hover:text-orange-400 transition-colors text-lg">Services</a>
+                    <a href="pricing.html" class="nav-link text-slate-300 hover:text-orange-400 transition-colors text-lg">Pricing</a>
+                    <a href="target.html" class="nav-link text-slate-300 hover:text-orange-400 transition-colors text-lg">Who It's For</a>
+                    <a href="faq.html" class="nav-link text-slate-300 hover:text-orange-400 transition-colors text-lg">FAQ</a>
+                    <a href="contact.html" class="nav-link text-slate-300 hover:text-orange-400 transition-colors text-lg">Contact</a>
+                    <a href="index.html#early-access" class="submit-button px-6 py-3 rounded-lg font-semibold text-white text-center mt-4">Get Early Access</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg pt-24 pb-16">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center fade-in-up">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                    About <span class="gradient-text">TryPivot</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-slate-300 leading-relaxed">
+                    Revolutionizing business growth through the power of community-driven sales and collaborative success.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="py-16 scroll-reveal">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="slide-in-left">
+                        <h2 class="text-3xl font-bold mb-6 gradient-text">Our Story</h2>
+                        <p class="text-slate-300 text-lg leading-relaxed mb-6">
+                            TryPivot was born from a simple yet powerful observation: traditional sales approaches are expensive, inefficient, and often fail to deliver the results businesses need in today's competitive landscape.
+                        </p>
+                        <p class="text-slate-300 text-lg leading-relaxed mb-6">
+                            We recognized that the collective power of a motivated community could achieve what individual salespeople struggle to accomplish. By harnessing the energy, creativity, and diverse perspectives of 100+ community members, we've created a revolutionary approach to sales and brand visibility.
+                        </p>
+                        <p class="text-slate-300 text-lg leading-relaxed">
+                            Today, TryPivot stands as the premier platform for community-driven sales, helping businesses achieve 10X growth while dramatically reducing their sales costs.
+                        </p>
+                    </div>
+                    <div class="slide-in-right">
+                        <div class="bg-gradient-to-r from-orange-500/20 to-amber-500/20 backdrop-blur-sm rounded-2xl p-8 border border-orange-500/30">
+                            <div class="text-center">
+                                <div class="w-24 h-24 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                                    <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-2xl font-bold gradient-text mb-4">Our Mission</h3>
+                                <p class="text-slate-300 text-lg">
+                                    To democratize business growth by making high-performance sales teams accessible to every business, regardless of size or budget.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-16 section-bg-alt scroll-reveal">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold gradient-text mb-4">How TryPivot Works</h2>
+                <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+                    Our innovative platform transforms the traditional sales model through community collaboration and proven strategies.
+                </p>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Step 1 -->
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="text-2xl font-bold text-white">1</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-orange-400">Community Assembly</h3>
+                        <p class="text-slate-300">
+                            We assemble a dedicated community of 100+ motivated individuals who are passionate about driving sales success for your business.
+                        </p>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="text-2xl font-bold text-white">2</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-amber-400">Strategic Coordination</h3>
+                        <p class="text-slate-300">
+                            Our expert team coordinates community efforts, provides training, and implements proven strategies tailored to your business goals.
+                        </p>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="text-2xl font-bold text-white">3</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-orange-300">Results Delivery</h3>
+                        <p class="text-slate-300">
+                            Watch as your brand visibility skyrockets and sales pour in, all while paying a fraction of traditional sales team costs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values -->
+    <section class="py-16 scroll-reveal">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold gradient-text mb-4">Our Core Values</h2>
+                <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+                    These principles guide everything we do and shape how we serve our community and clients.
+                </p>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Value 1 -->
+                    <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 card-hover text-center">
+                        <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2 text-orange-400">Community First</h3>
+                        <p class="text-slate-300 text-sm">
+                            We believe in the power of collective effort and mutual success.
+                        </p>
+                    </div>
+                    
+                    <!-- Value 2 -->
+                    <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 card-hover text-center">
+                        <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2 text-amber-400">Results Driven</h3>
+                        <p class="text-slate-300 text-sm">
+                            Every strategy and action is focused on delivering measurable outcomes.
+                        </p>
+                    </div>
+                    
+                    <!-- Value 3 -->
+                    <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 card-hover text-center">
+                        <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2 text-orange-300">Innovation</h3>
+                        <p class="text-slate-300 text-sm">
+                            We continuously evolve our methods to stay ahead of market trends.
+                        </p>
+                    </div>
+                    
+                    <!-- Value 4 -->
+                    <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 card-hover text-center">
+                        <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2 text-orange-400">Transparency</h3>
+                        <p class="text-slate-300 text-sm">
+                            Open communication and honest relationships with all stakeholders.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-16 section-bg-alt scroll-reveal">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold gradient-text mb-4">Why Choose TryPivot?</h2>
+                    <p class="text-xl text-slate-300">
+                        We're not just another sales service. We're your growth partners.
+                    </p>
+                </div>
+                
+                <div class="space-y-8">
+                    <!-- Reason 1 -->
+                    <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50 card-hover">
+                        <div class="flex items-start space-x-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-3 text-orange-400">Unmatched Cost Efficiency</h3>
+                                <p class="text-slate-300 text-lg leading-relaxed">
+                                    Traditional salesperson costs $1,000-3,000/month plus benefits. TryPivot delivers superior results for just $100-200/month in community rewards. That's a 90% cost reduction with 10X better outcomes.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Reason 2 -->
+                    <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50 card-hover">
+                        <div class="flex items-start space-x-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-3 text-amber-400">Scalable Community Power</h3>
+                                <p class="text-slate-300 text-lg leading-relaxed">
+                                    Instead of relying on one person, you get the collective intelligence, creativity, and effort of 100+ motivated community members. This creates unprecedented reach and impact for your brand.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Reason 3 -->
+                    <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50 card-hover">
+                        <div class="flex items-start space-x-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-3 text-orange-300">Proven Track Record</h3>
+                                <p class="text-slate-300 text-lg leading-relaxed">
+                                    Our community-driven approach has consistently delivered 10X brand visibility improvements and significant sales growth across diverse industries and business sizes.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 scroll-reveal">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h3 class="text-3xl md:text-4xl font-bold mb-6 gradient-text">Ready to Experience the TryPivot Difference?</h3>
+                <p class="text-xl text-slate-300 mb-8">
+                    Join the businesses that have already discovered the power of community-driven sales success.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="index.html#early-access" class="submit-button px-8 py-4 rounded-lg font-semibold text-white text-lg">
+                        Get Early Access
+                    </a>
+                    <a href="services.html" class="border border-orange-500 text-orange-400 hover:bg-orange-500 hover:text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all">
+                        Explore Our Services
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-700 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="relative w-8 h-8">
+                            <div class="absolute inset-1 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full"></div>
+                            <div class="absolute inset-2 bg-slate-900 rounded-full flex items-center justify-center">
+                                <div class="w-1 h-1 bg-orange-400 rounded-full"></div>
+                            </div>
+                        </div>
+                        <span class="text-xl font-bold gradient-text">TryPivot</span>
+                    </div>
+                    <p class="text-slate-400 mb-4">
+                        Transforming businesses through community-driven sales and 10X brand visibility.
+                    </p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h5 class="text-white font-semibold mb-4">Quick Links</h5>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-slate-400 hover:text-orange-400 transition-colors">About</a></li>
+                        <li><a href="services.html" class="text-slate-400 hover:text-orange-400 transition-colors">Services</a></li>
+                        <li><a href="pricing.html" class="text-slate-400 hover:text-orange-400 transition-colors">Pricing</a></li>
+                        <li><a href="target.html" class="text-slate-400 hover:text-orange-400 transition-colors">Who It's For</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Support -->
+                <div>
+                    <h5 class="text-white font-semibold mb-4">Support</h5>
+                    <ul class="space-y-2">
+                        <li><a href="faq.html" class="text-slate-400 hover:text-orange-400 transition-colors">FAQ</a></li>
+                        <li><a href="contact.html" class="text-slate-400 hover:text-orange-400 transition-colors">Contact</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-orange-400 transition-colors">Help Center</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-orange-400 transition-colors">Community</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h5 class="text-white font-semibold mb-4">Get in Touch</h5>
+                    <div class="space-y-2">
+                        <p class="text-slate-400">Ready to get started?</p>
+                        <a href="index.html#early-access" class="submit-button inline-block px-4 py-2 rounded-lg font-semibold text-white text-sm">
+                            Join Early Access
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-700 mt-8 pt-8 text-center">
+                <p class="text-slate-500">© 2025 TryPivot. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+
